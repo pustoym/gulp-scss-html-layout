@@ -6,14 +6,14 @@
   <title>ProjectName — Главная</title>
 
 </head>
-<body>
-
+<body class="no-js">
+  @@include("source/html/base/webp-polyfill.html")
   <div style="display: none;">
-    @@include("build/img/sprite_auto.svg")
+    @@include("build/img/sprite.svg")
   </div>
 
   <div class="wrapper">
-    <-- для внутренних страниц используйте "headerActiveLinkIndex": 0\1\2 --> 
+    <!-- для внутренних страниц используйте "headerActiveLinkIndex": 0\1\2 -->
     @@include("source/html/base/header.html", {
       "index": true
     })
