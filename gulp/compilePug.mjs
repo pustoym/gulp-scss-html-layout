@@ -1,17 +1,16 @@
 import gulp from 'gulp';
 import notify from 'gulp-notify';
 import replace from 'gulp-replace';
-import debug from 'gulp-debug';
 import gulpif from 'gulp-if';
 import plumber from 'gulp-plumber';
-import fileinclude from 'gulp-file-include';
-import htmlbeautify from 'gulp-html-beautify';
+import cached from 'gulp-cached';
+import pug from 'gulp-pug';
 import typograf from 'gulp-typograf';
 import imgToPicture from 'gulp-html-php-picture';
 import versionNumber from 'gulp-version-number';
 
 const compileHtml = () => {
-  return gulp.src(['source/html/*.html'])
+  return gulp.src(['source/pug/pages/*.pug'])
       .pipe(plumber({
         errorHandler(err) {
           notify.onError({
@@ -20,36 +19,17 @@ const compileHtml = () => {
           })(err);
         },
       }))
-      .pipe(debug({title: 'Compiles '}))
+      .pipe(pug({
+        pretty: true,
+        verbose: true,
+      }))
       .pipe(replace(/@img\//g, 'img/'))
-      .pipe(fileinclude({
-        prefix: '@@',
-        basepath: '@root',
-        context: { // глобальные переменные для include
-          test: 'text',
-        },
-      }))
       .pipe(imgToPicture({
-        // imgFolder: './build/img',
+        imgFolder: './build/img',
         // loger: false,
-        sortBySize: false,
-        sourceExtensions: [
-          // {
-          //     extension: 'avif',
-          //     mimetype: 'image/avif',
-          // },
-          {
-            extension: 'webp',
-            mimetype: 'image/webp',
-          }
-        ],
+        // sortBySize: false
       }))
-      .pipe(htmlbeautify({
-        'indent_size': 2,
-        'preserve_newlines': true,
-        'max_preserve_newlines': 0,
-        'wrap_attributes': 'auto',
-      }))
+      .pipe(cached('pug'))
       .pipe(typograf({locale: ['ru', 'en-US']}))
       .pipe(gulpif(app.isProd, versionNumber({
         'value': '%DT%',

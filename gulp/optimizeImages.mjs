@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import newer from 'gulp-newer';
 import rename from 'gulp-rename';
 import imagemin from 'gulp-imagemin';
 import webp from 'gulp-webp';
@@ -6,7 +7,7 @@ import svgstore from 'gulp-svgstore';
 
 const svgo = () =>
   gulp
-      .src('source/img/**/*.{svg}')
+      .src('build/img/**/*.svg')
       .pipe(
           imagemin([
             imagemin.svgo({
@@ -18,30 +19,23 @@ const svgo = () =>
             })
           ])
       )
-      .pipe(gulp.dest('source/img'));
+      .pipe(gulp.dest('build/img'));
 
 const sprite = () =>
   gulp
       .src('source/img/sprite/*.svg')
       .pipe(svgstore({inlineSvg: true}))
-      .pipe(rename('sprite_auto.svg'))
+      .pipe(rename('sprite.svg'))
       .pipe(gulp.dest('build/img'));
 
-/*
-  Optional tasks
-  ---------------------------------
-
-  Используйте отличное от дефолтного значение root, если нужно обработать отдельную папку в img,
-  а не все изображения в img во всех папках.
-
-  root = '' - по дефолту webp добавляются и обновляются во всех папках в source/img/
-  root = 'content/' - webp добавляются и обновляются только в source/img/content/
-*/
+//  Optional tasks
+//  ---------------------------------
 
 const createWebp = () => {
-  const root = '';
+  const root = 'bg';
   return gulp
-      .src(`source/img/${root}**/*.{png,jpg}`)
+      .src(`source/img/${root}/**/*.{png,jpg}`)
+      .pipe(newer(`source/img/${root}/**/*`))
       .pipe(webp({quality: 90}))
       .pipe(gulp.dest(`source/img/${root}`));
 };
