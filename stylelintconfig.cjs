@@ -20,7 +20,6 @@ module.exports = {
     'function-parentheses-space-inside': 'never-single-line',
     'function-url-quotes': 'always',
     'function-whitespace-after': 'always',
-    'function-calc-no-invalid': true,
     'function-calc-no-unspaced-operator': true,
     'function-linear-gradient-no-nonstandard-direction': true,
 
@@ -32,7 +31,7 @@ module.exports = {
 
     'unit-case': 'lower',
 
-    'value-keyword-case': 'lower',
+    'value-keyword-case': ['lower', {'camelCaseSvgKeywords': true}],
     'value-list-comma-newline-after': 'always-multi-line',
     'value-list-comma-newline-before': 'never-multi-line',
     'value-list-comma-space-after': 'always-single-line',
@@ -44,7 +43,14 @@ module.exports = {
     'property-no-vendor-prefix': true,
 
     'keyframe-declaration-no-important': true,
+    'keyframes-name-pattern': null,
     'declaration-no-important': true,
+    'declaration-empty-line-before': [
+      'never',
+      {
+        'ignore': 'after-declaration',
+      }
+    ],
 
     'declaration-bang-space-after': 'never',
     'declaration-bang-space-before': 'always',
@@ -53,7 +59,12 @@ module.exports = {
 
     'declaration-block-no-duplicate-custom-properties': true,
     'declaration-block-no-shorthand-property-overrides': true,
-    'declaration-block-no-duplicate-properties': true,
+    'declaration-block-no-duplicate-properties': [
+      true,
+      {
+        'ignore': ['consecutive-duplicates-with-different-values'],
+      }
+    ],
     'declaration-block-semicolon-newline-after': 'always',
     'declaration-block-semicolon-newline-before': 'never-multi-line',
     'declaration-block-semicolon-space-after': 'always-single-line',
@@ -76,6 +87,7 @@ module.exports = {
     'selector-attribute-quotes': 'always',
     'selector-combinator-space-after': 'always',
     'selector-combinator-space-before': 'always',
+    'selector-class-pattern': null,
     'selector-descendant-combinator-no-non-space': true,
     'selector-max-id': 0,
     'selector-pseudo-class-case': 'lower',
@@ -118,14 +130,20 @@ module.exports = {
       {
         'except': ['first-nested', 'blockless-after-blockless'],
         'ignore': ['after-comment'],
+        'ignoreAtRules': [
+          'else'
+        ],
       }
+    ],
+    'at-rule-disallowed-list': [
+      'extend'
     ],
     'at-rule-name-case': 'lower',
     'at-rule-name-space-after': 'always',
     'at-rule-no-unknown': [
       true,
       {
-        'ignoreAtRules': ['mixin', 'define-mixin', 'include', 'content', 'rules', 'each'],
+        'ignoreAtRules': ['mixin', 'define-mixin', 'include', 'content', 'rules', 'each', 'function', 'return'],
       }
     ],
     'at-rule-no-vendor-prefix': true,
@@ -158,6 +176,6 @@ module.exports = {
     'color-no-invalid-hex': true,
     'color-no-hex': null,
     'color-named': 'never',
-    'number-max-precision': 2,
+    'number-max-precision': 3,
   },
 };
