@@ -1,5 +1,16 @@
 .footer {
   padding: 40px 0;
 
-  background-color: $color-neon-blue;
+  background-color: $primary;
+
+  &__developer {
+    margin-left: auto;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__copy {
+    font-size: 12px;
+    line-height: 16px;
+  }
 }

@@ -1,11 +1,11 @@
 // ---------------------------------
-// ❗ использование скейлинга должно быть согласовано с командой и заказчиком
+// Скейлинг
 
 // 1) ремы в плюс
 
 // functions.scss
 // @function size($size-in-px) {
-//   @return calc($size-in-px / $fz-default * 1rem);
+//   @return calc($size-in-px / $font-size * 1rem);
 // }
 
 // @function size-desktop($size-in-px) {
@@ -14,10 +14,10 @@
 
 // reboot.scss
 // html {
-//   font-size: size-desktop($fz-default);
+//   font-size: size-desktop($font-size);
 
 //   @include vp-1919 {
-//     font-size: $fz-default;
+//     font-size: $font-size;
 //   }
 // }
 
@@ -26,7 +26,7 @@
 
 // functions.scss
 // @function size($size-in-px) {
-//   @return calc($size-in-px / $fz-default * 1rem;
+//   @return calc($size-in-px / $font-size * 1rem;
 // }
 
 // @function size-desktop($size-in-px) {
@@ -35,10 +35,10 @@
 
 // reboot.scss
 // html {
-//   font-size: size-desktop($fz-default);
+//   font-size: size-desktop($font-size);
 
 //   @include vp-1023 {
-//     font-size: $fz-default;
+//     font-size: $font-size;
 //   }
 // }
 
@@ -46,7 +46,7 @@
 // 3) ремы в плюс от эталона и в минус (с другим коэффициентом), на планшете обычная верстка
 // functions.scss
 // @function size($size-in-px) {
-//   @return calc($size-in-px / $fz-default * 1rem);
+//   @return calc($size-in-px / $font-size * 1rem);
 // }
 
 // @function size-desktop($size-in-px) {
@@ -59,14 +59,14 @@
 
 // reboot.scss
 // html {
-//   font-size: size-desktop($fz-default);
+//   font-size: size-desktop($font-size);
 
 //   @include vp-1439 {
-//     font-size: size-tablet($fz-default);
+//     font-size: size-tablet($font-size);
 //   }
 
 //   @include vp-1023 {
-//     font-size: $fz-default;
+//     font-size: $font-size;
 //   }
 // }
 
@@ -74,7 +74,7 @@
 // 4) ремы в коэффициентах
 // functions.scss
 // @function size($size-in-px) {
-//   @return calc($size-in-px / $fz-default * 1rem);
+//   @return calc($size-in-px / $font-size * 1rem);
 // }
 
 // @function size-coefficient($size-in-px) {
@@ -87,18 +87,18 @@
 
 // reboot.scss
 // html {
-//   font-size: $fz-default;
+//   font-size: $font-size;
 
 //   @media (min-width: 1921px) {
-//     font-size: size-coefficient-large($fz-default);
+//     font-size: size-coefficient-large($font-size);
 //   }
 
 //   @include vp-1439 {
-//     font-size: size-coefficient($fz-default);
+//     font-size: size-coefficient($font-size);
 //   }
 
 //   @include vp-1023 {
-//     font-size: $fz-default;
+//     font-size: $font-size;
 //   }
 // }
 
@@ -106,7 +106,7 @@
 // 5) скейлинг отдельных элементов
 // functions.scss
 // @function size($size-in-px) {
-//   @return calc($size-in-px / $fz-default * 1rem);
+//   @return calc($size-in-px / $font-size * 1rem);
 // }
 
 // @function size-desktop($size-in-px) {
@@ -119,10 +119,10 @@
 
 // reboot.scss
 // html {
-//   font-size: size-desktop($fz-default);
+//   font-size: size-desktop($font-size);
 
 //   @include vp-1439 {
-//     font-size: $fz-default;
+//     font-size: $font-size;
 //   }
 // }
 

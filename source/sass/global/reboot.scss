@@ -1,28 +1,33 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 html,
 body {
+  overflow-x: hidden;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 html {
-  font-style: normal;
+  box-sizing: border-box;
+  color: $black;
   font-weight: 400;
-  font-size: $fz-default;
-  line-height: 24px;
-  font-family: $ff-placeholder;
-  color: $color-default-black;
+  font-style: normal;
+  font-size: $font-size;
+  font-family: $font-family-base;
+  line-height: $line-height;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   // оптимизация выравнивания шрифта относительно центра строки
   text-rendering: optimizeLegibility;
+
   // если по прежнему есть проблемы с выравниванием
   // https://transfonter.org/ - включите настройку https://prnt.sc/12rnt6g и переконвертируйте шрифт
 }
@@ -30,13 +35,41 @@ html {
 body {
   width: 100%;
   height: 100%;
+  background-color: $white;
 
-  background-color: $color-default-white;
+  -webkit-font-smoothing: antialiased;
+  text-decoration-skip: objects;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
-  color: $color-default-black;
+  color: $link-color;
   text-decoration: none;
+}
+
+svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+figure,
+picture {
+  display: inline-block;
+  margin: 0;
+  line-height: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+img {
+  user-select: none;
 }
 
 img,
@@ -46,20 +79,25 @@ video {
   height: auto;
 }
 
+video {
+  // width: 100%;
+  // height: 100%;
+  outline: none;
+}
+
+iframe {
+  display: block;
+}
+
 textarea {
   resize: none;
 }
 
 // chrome autofill background removal
-// если на проекте у инпутов используются разные цвета фонов\текста -
-// удалите это из глобала и используйте локально с нужными цветами
-// rgba не подойдет, сконвертируйте цвет в hex без прозрачности
-// если в стилях уже используется box-shadow есть другое решение -
-// задать к списку транзишенов `background-color 10000000s ease-out`
 input:-webkit-autofill {
-  box-shadow: inset 0 0 0 1000px $color-default-white;
+  box-shadow: inset 0 0 0 1000px $white;
 
-  -webkit-text-fill-color: $color-default-black;
+  -webkit-text-fill-color: $black;
 }
 
 // firefox placeholder \ invalid fix + ios bdrs
@@ -74,6 +112,12 @@ textarea {
   &:invalid {
     box-shadow: none;
   }
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 select {
@@ -100,7 +144,6 @@ input[type="search"]::-webkit-search-results-decoration {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   margin: 0;
-
   appearance: none;
 }
 

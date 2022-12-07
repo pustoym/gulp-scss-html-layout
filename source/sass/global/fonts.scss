@@ -1,8 +1,20 @@
+// @mixin font-face($name, $file, $weight: 400, $style: normal) {
+//   @font-face {
+//     font-weight: $weight;
+//     font-style: $style;
+//     font-family: "#{$name}";
+//     src:
+//       local("#{$file}"),
+//       url("../fonts/#{$file}.woff2") format("woff2"),
+//       url("../fonts/#{$file}.woff") format("woff");
+//     font-display: swap;
+//   }
+// }
+
 // @font-face {
 //   font-style: normal;
 //   font-weight: 400;
 //   font-family: "Rouble";
-
 //   font-display: swap;
 //   src:
 //     url("../fonts/rouble.woff2") format("woff2"),
@@ -10,8 +22,8 @@
 // }
 
 @font-face {
-  font-style: normal;
   font-weight: 400;
+  font-style: normal;
   font-family: "";
 
   font-display: swap;

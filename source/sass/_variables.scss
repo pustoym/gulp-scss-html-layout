@@ -1,0 +1,108 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$black:         hsl(0 0% 0%);
+$gray-darkest:  hsl(0 0% 10%);
+$gray-darker:   hsl(0 0% 20%);
+$gray-darken:   hsl(0 0% 30%);
+$gray-dark:     hsl(0 0% 40%);
+$gray:          hsl(0 0% 50%);
+$gray-light:    hsl(0 0% 60%);
+$gray-lighten:  hsl(0 0% 70%);
+$gray-lighter:  hsl(0 0% 80%);
+$gray-lightest: hsl(0 0% 90%);
+$white:         hsl(0 0% 100%);
+$transparent:   rgb(255 255 255 / 0%);
+$blue:          hsl(208 98% 43%);
+$green:         hsl(120 39% 54%);
+$red:           hsl(2 64% 58%);
+$yellow:        hsl(35 84% 62%);
+$indigo:        #6610f2;
+$purple:        #6f42c1;
+$pink:          #d63384;
+$orange:        #fd7e14;
+$teal:          #20c997;
+$cyan:          #0dcaf0;
+
+// Project palette
+
+$primary:   $blue;
+$secondary: $gray-lightest;
+$success:   $green;
+$info:      $blue;
+$warning:   $yellow;
+$danger:    $red;
+$light:     $gray-lighten;
+$dark:      $gray-darkest;
+
+// Semantic colors
+
+$body-bg:           $white;
+$body-color:        $gray-darkest;
+$text-color-muted:  $gray;
+$color-title:       #101a1d;
+$link-color:        $primary;
+$link-color--hover: darken($primary, 15);
+$border-color:      $gray-lighten;
+
+// Gradient
+
+$black-to-right: linear-gradient(90deg, rgb(0 0 0 / 75%) 0%, rgb(0 0 0 / 0%) 75%);
+
+// Typography
+// ---------------------------------
+
+$font-size:        16px;
+$font-size-sm:     $font-size * 0.875;
+$font-size-lg:     $font-size * 1.25;
+$line-height:      1.5;
+// stylelint-disable-next-line max-line-length
+$font-family: -apple-system, blinkmacsystemfont, "Roboto", "Ubuntu", "Droid Sans", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-base: $font-family;
+$ff-rouble:        "Rouble", "Arial", sans-serif;
+
+
+// $font-family--monospace: SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+// Georgia, Times New Roman, Times, serif
+
+// Animation
+// ---------------------------------
+
+$tf-default:    ease;
+$trans-time:    0.3s;
+$trans-default: $trans-time $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal:     0.6s cubic-bezier(0.55, 0, 0.1, 1);
+$trans-600:       0.6s $tf-default;
+$easing-back-out: cubic-bezier(0.25, 0.74, 0.22, 1.1);   // http://cubic-bezier.com/#.25,.74,.22,1.1
+$easing-back-in:  cubic-bezier(0.47, -0.1, 0.5, -0.06);  // http://cubic-bezier.com/#.47,-0.1,.5,-.06
+
+
+// Viewports
+// ---------------------------------
+
+$vp-320:  320px;
+$vp-375:  375px;
+$vp-768:  768px;
+$vp-1024: 1024px;
+$vp-1280: 1280px;
+$vp-1440: 1440px;
+$vp-1920: 1920px;
+
+// Retina
+// ---------------------------------
+
+$retina-dpi:  144dpi;
+$retina-dppx: 1.5dppx;
+
+// Other
+// ---------------------------------
+
+$field-padding-vertical:   5px;
+$field-padding-horizontal: 12px;
+$border-radius:            3px;
+$opacity:                  0.7;
+$shadow:                   0 4px 2px -2px rgb(0 0 0 / 30%);

@@ -1,10 +1,29 @@
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0;
+
+  @include vp-1439 {
+    padding: 0 32px;
+  }
+
+  @include vp-1023 {
+    padding: 0 45px;
+  }
+
+  @include vp-767 {
+    padding: 0 16px;
+  }
+}
+
 .wrapper {
   position: relative;
-
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* stylelint-disable-next-line */
   min-height: calc(100 * var(--vh, 1vh));
 
   .header,
@@ -26,6 +45,7 @@
 }
 
 .visually-hidden {
+/* stylelint-disable */
   position: absolute;
 
   width: 1px;
@@ -40,6 +60,7 @@
 
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
+  /* stylelint-enable */
 }
 
 .scroll-lock-ios {
@@ -64,4 +85,22 @@
 .no-transition {
   /* stylelint-disable-next-line */
   transition: none !important;
+}
+
+.js-focus-visible:focus:not(.focus-visible) {
+  outline: none;
+}
+
+.dont-break-out {
+  /* stylelint-disable */
+	// Технически это одно и то же, но используйте и то, и другое
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	// Это самое опасное в WebKit, так как оно ломает вещи везде, где бы они ни были
+	word-break: break-all;
+	// Вместо этого используйте этот нестандартный:
+	word-break: break-word;
+	// Добавляет дефис там, где слово ломается, если поддерживается
+	hyphens: auto;
+  /* stylelint-enable */
 }
